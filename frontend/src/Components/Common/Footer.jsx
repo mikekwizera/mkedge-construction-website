@@ -6,7 +6,7 @@ const Footer = () => {
     <div className='container py-5'>
         <div className='row'>
             <div className='col-md-3'>
-                <h3>MkEdge Construction</h3>
+                <h3 className='mb-3'>MkEdge Construction</h3>
                 <div className='pe-5'>
                 <p>Out post-contruction services gives you peace of mind knowing that we are still here for you even after.</p>
                 </div>
