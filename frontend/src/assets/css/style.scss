@@ -5,7 +5,7 @@ $third-color:  rgb(244, 162, 31);
 $text-color: #000;
 $text-white: #FFFFFF;
 $dark-background: #222725;
-$light-background: #b5b5b5;
+$light-background:rgb(154, 153, 153);
 
 @import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
 
@@ -35,6 +35,14 @@ ul{
     li{
         list-style: none;
         margin-left: 0;
+    }
+}
+
+a{
+    text-decoration: none;
+    color: $text-color;
+    &:hover{
+        color: $primary-color;
     }
 }
 
@@ -256,6 +264,44 @@ footer{
         .card-body{
             a.title{
                 font-size: 1.3em;
+            }
+        }
+    }
+}
+
+.section-7{
+    .hero{   
+     background: linear-gradient(to right, rgba(31, 61, 51, 0.9), rgba(46, 106, 98, 0)), url(/src/assets/images/helo.jpg);
+     min-height: 500px;
+
+     color: $text-white;
+
+     span{
+        color: $primary-color;
+        font-size: 1.5em;
+        font-weight: 500;
+     }
+    }
+}
+
+.section-8{
+    .card{
+        border-radius: 40px;
+        img{
+            border-top-left-radius: 40px;
+            border-top-right-radius: 40px;
+        }
+        .card-body{
+            a.title{
+                font-size: 1.3em;
+            }
+            .card-title{
+                font-size: 1.5em;
+                font-weight: 500;
+            }
+            .card-sub-title{
+                font-size: 1em;
+                color: $light-background;
             }
         }
     }
