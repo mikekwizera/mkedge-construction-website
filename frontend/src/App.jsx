@@ -7,6 +7,10 @@ import Services from './Components/Frontend/Services';
 import Projects from './Components/Frontend/Projects';
 import Blogs from './Components/Frontend/Blogs';
 import ContactUs from './Components/Frontend/ContactUs';
+import Login from './Components/backend/Login';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import Dashboard from './Components/backend/Dashboard';
 
 function App() {
 
@@ -20,8 +24,13 @@ function App() {
             <Route path='/projects' element={<Projects/>} />
             <Route path='/blogs' element={<Blogs/>} />
             <Route path='/contact' element={<ContactUs/>} />
+            <Route path='/admin/login' element={<Login/>} />
+            <Route path='/admin/dashboard' element={<Dashboard/>} />
          </Routes>
     </BrowserRouter>
+    <ToastContainer
+      position='top-center'
+    />
     </>
   )
 }

@@ -14,6 +14,6 @@ Route::post('authenticate', [AuthenticationController::class, 'authenticate' ]);
 
 Route::group(['middleware' => ['auth:sanctun']], function(){
     //Protected Routes
-    Route::get('home', [HomeController::class, 'index' ]);
+    Route::get('dashboard', [HomeController::class, 'index' ]);
     Route::get('logout', [AuthenticationController::class, 'logout' ]);
 });
