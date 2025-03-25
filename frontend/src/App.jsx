@@ -11,6 +11,7 @@ import Login from './Components/backend/Login';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Dashboard from './Components/backend/Dashboard';
+import RequireAuth from './Components/Common/RequireAuth';
 
 function App() {
 
@@ -25,7 +26,13 @@ function App() {
             <Route path='/blogs' element={<Blogs/>} />
             <Route path='/contact' element={<ContactUs/>} />
             <Route path='/admin/login' element={<Login/>} />
-            <Route path='/admin/dashboard' element={<Dashboard/>} />
+
+            <Route path='/admin/dashboard' element={
+              <RequireAuth>
+                 <Dashboard/>
+              </RequireAuth>
+            } />
+
          </Routes>
     </BrowserRouter>
     <ToastContainer
