@@ -34,7 +34,7 @@ class AuthenticationController extends Controller
 
                 return response()->json([
                     'status' => true,
-                    'token' > $token,
+                    'token' => $token,
                     'id' => Auth::user()->id
                 ]);
 
