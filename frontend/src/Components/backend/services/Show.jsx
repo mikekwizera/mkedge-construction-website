@@ -3,6 +3,7 @@ import Header from '../../Common/Header'
 import Sidebar from '../../Common/Sidebar'
 import Footer from '../../Common/Footer'
 import { apiUrl, token } from '../../Common/http'
+import { Link } from 'react-router-dom'
 
 const Show = () => {
 
@@ -42,7 +43,7 @@ const Show = () => {
                               <div className='card-body p-4'>
                                 <div className='d-flex justify-content-between'>
                                   <h4 className='h5'>Services</h4>
-                                  <a href="#" className='btn btn-primary'>Create</a>
+                                  <Link to="/admin/services/create" className='btn btn-primary'>Create</Link>
                                 </div>
                                 <hr />
 
@@ -59,7 +60,7 @@ const Show = () => {
                                     {
                                       services && services.map(service => {
                                         return (
-                                          <tr>
+                                          <tr key={`service-${service.id}`}>
                                             <td>{service.id}</td>
                                             <td>{service.title}</td>
                                             <td>{service.slug}</td>
