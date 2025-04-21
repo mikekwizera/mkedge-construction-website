@@ -153,14 +153,14 @@ const Create = ({placeholder}) => {
                                 </div>
 
                                 <div className='mb-3'>
-                                    <label htmlFor="" className='form-label'>Status</label>
+                                    <label htmlFor="" className='form-label'>Image</label>
                                     <br />
                                     <input onChange={handleFile} type="file" />
  
                                 </div>
 
                                 <div className='mb-3'>
-                                    <label htmlFor="" className='form-label'>Image</label>
+                                    <label htmlFor="" className='form-label'>Status</label>
                                     <select className='form-control'
                                     {
                                         ...register('status')
