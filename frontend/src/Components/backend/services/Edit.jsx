@@ -76,7 +76,7 @@ const Edit = ({placeholder}) => {
 
             const handleFile = async (e) => {
                 const formData = new formData();
-                const file = e.target.file(0);
+                const file = e.target.files(0);
                 formData.append("image", file);
         
                 await fetch(apiUrl+'temp-images',{

@@ -10,7 +10,7 @@ const Sidebar = () => {
         <div className='card-body p-4 sidebar'>
             <h4>Sidebar</h4> 
             <ul>
-                <li><a href="#">Dashboard</a></li>
+                <li><Link to="/admin/dashboard">Dashboard</Link></li>
                 <li><Link to="/admin/services">Services</Link></li>
                 <li><a href="#">Projects</a></li>
                 <li><a href="#">Articles</a></li>

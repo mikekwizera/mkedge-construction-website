@@ -4,6 +4,8 @@ import Sidebar from '../../Common/Sidebar'
 import Footer from '../../Common/Footer'
 import { apiUrl, token } from '../../Common/http'
 import { Link } from 'react-router-dom'
+import { toast, ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'; 
 
 const Show = () => {
 
@@ -20,7 +22,29 @@ const Show = () => {
     });
     const result = await res.json();
     setServices(result.data);
-    console.log(result)
+  }
+
+  const deleteService = async (id) => {
+
+    if (confirm("Are you sure you want to delete?")) {
+      const res = await fetch(apiUrl+'services/'+id,{
+        'method' : 'DELETE',
+        'headers' : {
+          'Content-type' : 'application/json',
+          'Accept' : 'application/json',
+          'Authorization' : `Bearer ${token()}`
+        }
+      });
+      const result = await res.json();
+
+      if (result.status == true) {
+        const newServices = services.filter(service => service.id != id)
+        setServices(newServices);
+        toast.success(result.message)
+      }else {
+        toast.error(result.message)
+      }
+    }
   }
 
   useEffect(() => {
@@ -71,7 +95,7 @@ const Show = () => {
                                               </td>
                                             <td>
                                               <Link to={`/admin/services/edit/${service.id}`} className='btn btn-primary btn-sm'>Edit</Link>
-                                              <Link to="" className='btn btn-secondary btn-sm ms-2'>Delete</Link>
+                                              <Link onClick={() => deleteService(service.id)} href="#" className='btn btn-secondary btn-sm ms-2'>Delete</Link>
                                             </td>
                                           </tr>
                                         )
@@ -88,6 +112,7 @@ const Show = () => {
               </div>
           </main>
       <Footer/>
+      <ToastContainer />
     </>
   )
 }
