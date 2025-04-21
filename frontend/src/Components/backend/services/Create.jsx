@@ -12,6 +12,8 @@ import JoditEditor from 'jodit-react';
 const Create = ({placeholder}) => {
     const editor = useRef(null);
 	const [content, setContent] = useState('');
+	const [isDisable, setIsDisable] = useState(false);
+	const [imageId, setImageId] = useState(null);
 
     const config = useMemo(() => ({
             readonly: false, // all options from https://xdsoft.net/jodit/docs/,
@@ -30,7 +32,7 @@ const Create = ({placeholder}) => {
     const navigate = useNavigate();
 
     const onSubmit = async (data) => {
-        const newData = { ...data, "content": content}
+        const newData = { ...data, "content": content, "imageId": imageId}
         const res = await fetch(apiUrl+'services',{
             'method' : 'POST',
             'headers' : {
@@ -48,6 +50,29 @@ const Create = ({placeholder}) => {
         }else {
             toast.error(result.message);
         }
+    }
+
+    const handleFile = async (e) => {
+        const formData = new formData();
+        const file = e.target.file(0);
+        formData.append("image", file);
+
+        await fetch(apiUrl+'temp-images',{
+            'method' : 'POST',
+            'headers' : {
+            'Accept' : 'application/json',
+            'Authorization' : `Bearer ${token()}`
+            },
+            body: formData
+        })
+        .then(response => response.json())
+        .then(result => {
+            if(result. status == false){
+                toast.error()
+            }else {
+                setImageId(result.data.id)
+            }
+        });
     }
   return (
     <>
@@ -129,6 +154,13 @@ const Create = ({placeholder}) => {
 
                                 <div className='mb-3'>
                                     <label htmlFor="" className='form-label'>Status</label>
+                                    <br />
+                                    <input onChange={handleFile} type="file" />
+ 
+                                </div>
+
+                                <div className='mb-3'>
+                                    <label htmlFor="" className='form-label'>Image</label>
                                     <select className='form-control'
                                     {
                                         ...register('status')
@@ -139,7 +171,7 @@ const Create = ({placeholder}) => {
                                     </select>
                                 </div>
 
-                                <button className='btn btn-primary'>Submit</button>
+                                <button disabled={isDisable} className='btn btn-primary'>Submit</button>
 
                               </form>
                             </div>
