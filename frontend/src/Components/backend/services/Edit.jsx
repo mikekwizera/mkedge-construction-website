@@ -5,7 +5,7 @@ import Footer from '../../Common/Footer'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import { toast, ToastContainer } from 'react-toastify'
 import { apiUrl, token, fileUrl } from '../../Common/http'
-import { set, useForm } from "react-hook-form"
+import { useForm } from "react-hook-form"
 import 'react-toastify/dist/ReactToastify.css'; 
 import JoditEditor from 'jodit-react';
 
@@ -34,9 +34,9 @@ const Edit = ({placeholder}) => {
             const res = await fetch(apiUrl+'services/'+params.id,{
                 'method' : 'GET',
                 'headers' : {
-                'Content-type' : 'application/json',
-                'Accept' : 'application/json',
-                'Authorization' : `Bearer ${token()}`
+                    'Content-type' : 'application/json',
+                    'Accept' : 'application/json',
+                    'Authorization' : `Bearer ${token()}`
                 }
             });
             const result = await res.json();
@@ -58,9 +58,9 @@ const Edit = ({placeholder}) => {
             const res = await fetch(apiUrl+'services/'+params.id,{
                 'method' : 'PUT',
                 'headers' : {
-                'Content-type' : 'application/json',
-                'Accept' : 'application/json',
-                'Authorization' : `Bearer ${token()}`
+                    'Content-type' : 'application/json',
+                    'Accept' : 'application/json',
+                    'Authorization' : `Bearer ${token()}`
                 },
                 body: JSON.stringify(newData)
             });
@@ -75,7 +75,7 @@ const Edit = ({placeholder}) => {
         }
 
             const handleFile = async (e) => {
-                const formData = new formData();
+                const formData = new FormData();
                 const file = e.target.files(0);
                 formData.append("image", file);
         
@@ -89,8 +89,8 @@ const Edit = ({placeholder}) => {
                 })
                 .then(response => response.json())
                 .then(result => {
-                    if(result. status == false){
-                        toast.error()
+                    if(result.status == false){
+                        toast.error(result.errors.image[0])
                     }else {
                         setImageId(result.data.id)
                     }

@@ -15,9 +15,9 @@ const Show = () => {
     const res = await fetch(apiUrl+'services',{
       'method' : 'GET',
       'headers' : {
-        'Content-type' : 'application/json',
-        'Accept' : 'application/json',
-        'Authorization' : `Bearer ${token()}`
+          'Content-type' : 'application/json',
+          'Accept' : 'application/json',
+          'Authorization' : `Bearer ${token()}`
       }
     });
     const result = await res.json();
@@ -30,9 +30,9 @@ const Show = () => {
       const res = await fetch(apiUrl+'services/'+id,{
         'method' : 'DELETE',
         'headers' : {
-          'Content-type' : 'application/json',
-          'Accept' : 'application/json',
-          'Authorization' : `Bearer ${token()}`
+            'Content-type' : 'application/json',
+            'Accept' : 'application/json',
+            'Authorization' : `Bearer ${token()}`
         }
       });
       const result = await res.json();
@@ -49,7 +49,8 @@ const Show = () => {
 
   useEffect(() => {
     fetchServices()
-  })
+  },[]);
+
   return (
     <>
       <Header/>

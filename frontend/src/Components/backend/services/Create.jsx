@@ -4,7 +4,7 @@ import Sidebar from '../../Common/Sidebar'
 import Footer from '../../Common/Footer'
 import { Link, useNavigate } from 'react-router-dom'
 import { useForm } from "react-hook-form"
-import { apiUrl, token } from '../../Common/http'
+import { apiUrl, token } from '../../Common/http' 
 import { toast, ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'; 
 import JoditEditor from 'jodit-react';
@@ -36,9 +36,9 @@ const Create = ({placeholder}) => {
         const res = await fetch(apiUrl+'services',{
             'method' : 'POST',
             'headers' : {
-            'Content-type' : 'application/json',
-            'Accept' : 'application/json',
-            'Authorization' : `Bearer ${token()}`
+                'Content-type' : 'application/json',
+                'Accept' : 'application/json',
+                'Authorization' : `Bearer ${token()}`
             },
             body: JSON.stringify(newData)
         });
@@ -53,22 +53,22 @@ const Create = ({placeholder}) => {
     }
 
     const handleFile = async (e) => {
-        const formData = new formData();
-        const file = e.target.file(0);
+        const formData = new FormData();
+        const file = e.target.files(0);
         formData.append("image", file);
 
         await fetch(apiUrl+'temp-images',{
             'method' : 'POST',
             'headers' : {
-            'Accept' : 'application/json',
-            'Authorization' : `Bearer ${token()}`
+                'Accept' : 'application/json',
+                'Authorization' : `Bearer ${token()}`
             },
             body: formData
         })
         .then(response => response.json())
         .then(result => {
-            if(result. status == false){
-                toast.error()
+            if (result.status == false){
+                toast.error(result.errors.image[0])
             }else {
                 setImageId(result.data.id)
             }
