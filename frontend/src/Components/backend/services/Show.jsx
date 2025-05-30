@@ -82,28 +82,27 @@ const Show = () => {
                                       <th>Action</th>
                                     </tr>
                                   </thead>
+                                  <tbody>
                                     {
                                       services && services.map(service => {
-                                        return (
-                                          <tr key={`service-${service.id}`}>
-                                            <td>{service.id}</td>
-                                            <td>{service.title}</td>
-                                            <td>{service.slug}</td>
-                                            <td>
-                                              {
-                                              (service.status == 1) ? 'Active' : 'Block'
-                                              }
+                                          return (
+                                            <tr key={`service-${service.id}`}>
+                                              <td>{service.id}</td>
+                                              <td>{service.title}</td>
+                                              <td>{service.slug}</td>
+                                              <td>
+                                                {
+                                                (service.status == 1) ? 'Active' : 'Block'
+                                                }
+                                                </td>
+                                              <td>
+                                                <Link to={`/admin/services/edit/${service.id}`} className='btn btn-primary btn-sm'>Edit</Link>
+                                                <Link onClick={() => deleteService(service.id)} href="#" className='btn btn-secondary btn-sm ms-2'>Delete</Link>
                                               </td>
-                                            <td>
-                                              <Link to={`/admin/services/edit/${service.id}`} className='btn btn-primary btn-sm'>Edit</Link>
-                                              <Link onClick={() => deleteService(service.id)} href="#" className='btn btn-secondary btn-sm ms-2'>Delete</Link>
-                                            </td>
-                                          </tr>
-                                        )
-                                      })
-                                    }
-                                  <tbody>
-
+                                            </tr>
+                                          )
+                                        })
+                                      }
                                   </tbody>
                                 </table>
                               </div>

@@ -6,8 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Models\Service;
 use App\Models\TempImage;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 use Intervention\Image\ImageManager;
 use Intervention\Image\Drivers\Gd\Driver;
@@ -32,6 +32,7 @@ class ServiceController extends Controller
      */
     public function store(Request $request)
     {
+        $request->merge(['slug' => Str::slug($request->slug)]);
         
         $validator = Validator::make($request->all(),[
             'title' => 'required',
@@ -54,9 +55,9 @@ class ServiceController extends Controller
         $model->save();
 
         //Save Temp image here 
-        if ($request->ImageId > 0){
+        if ($request->imageId > 0){
 
-            $tempImage = TempImage::find($request->ImageId);
+            $tempImage = TempImage::find($request->imageId);
             if ($tempImage != null){
                 $extArray = explode('.',$tempImage->name);
                 $ext = last($extArray);
@@ -131,6 +132,8 @@ class ServiceController extends Controller
             ]); 
         }
 
+        $request->merge(['slug' => Str::slug($request->slug)]);
+
         $validator = Validator::make($request->all(),[
             'title' => 'required',
             'slug' => 'required|unique:services,slug,'.$id.',id',
@@ -152,9 +155,9 @@ class ServiceController extends Controller
 
 
         //Save Temp image here 
-        if ($request->ImageId > 0){
+        if ($request->imageId > 0){
             $oldImage = $service->image;
-            $tempImage = TempImage::find($request->ImageId);
+            $tempImage = TempImage::find($request->imageId);
             if ($tempImage != null){
                 $extArray = explode('.',$tempImage->name);
                 $ext = last($extArray);
@@ -180,8 +183,8 @@ class ServiceController extends Controller
                 $service->save();
 
                 if($oldImage != ''){
-                    File::delete(public_path('uploads/services/large'.$oldImage));
-                    File::delete(public_path('uploads/services/small'.$oldImage));
+                    File::delete(public_path('uploads/services/large/'.$oldImage));
+                    File::delete(public_path('uploads/services/small/'.$oldImage));
 
                 }
             }

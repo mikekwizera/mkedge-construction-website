@@ -12,7 +12,6 @@ use Intervention\Image\Drivers\Gd\Driver;
 class TempImageController extends Controller
 {
     public function store(Request $request){
-
         $validator = Validator::make($request->all(),[
             'image' => 'required|mimes:png,jpg,jpeg,gif'
         ]);
@@ -29,7 +28,7 @@ class TempImageController extends Controller
         $ext = $image->getClientOriginalExtension();
         $imageName = strtotime('now').'.'.$ext;
 
-        //Save data in temp images table
+        // Save to database
         $model = new TempImage();
         $model->name = $imageName;
         $model->save();
@@ -37,11 +36,11 @@ class TempImageController extends Controller
         // Save image in uploads/temp directory
         $image->move(public_path('uploads/temp'),$imageName);
 
-        //Create small thumbnail here
-        $sourcePath = public_path('uploads/temp/'.$imageName);
+        // Create small thumbnail here
+        $sourcePath = public_path('uploads/temp/'. $imageName);
         $destPath = public_path('uploads/temp/thumb/'.$imageName);
         $manager = new ImageManager(Driver::class);
-        $image = $manager->read($sourcePath );
+        $image = $manager->read($sourcePath);
         $image->coverDown(300, 300);
         $image->save($destPath);
 

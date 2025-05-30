@@ -22,7 +22,7 @@ Route::middleware(['auth:sanctum'])->group(function () {
     Route::get('services/{id}', [ServiceController::class, 'show']);
     Route::delete('services/{id}', [ServiceController::class, 'destroy']);
 
-    //Temp Image Routes
+    // Temp Image Route
     Route::post('temp-images', [TempImageController::class, 'store']);
 
 });
