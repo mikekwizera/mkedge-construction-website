@@ -15,7 +15,12 @@ class ProjectController extends Controller
 {
     // This method will return all projects
     public function index(){
+        $project = Project::orderBy('created_at', 'DESC')->get();
 
+        return response()->json([
+            'status' => true,
+            'data' => $project
+        ]);
     }
 
     public function store(Request $request){
