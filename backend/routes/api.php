@@ -28,6 +28,7 @@ Route::middleware(['auth:sanctum'])->group(function () {
     Route::get('projects', [ProjectController::class, 'index']);
     Route::put('projects/{id}', [ProjectController::class, 'update']);
     Route::get('projects/{id}', [ProjectController::class, 'show']);
+    Route::delete('projects/{id}', [ProjectController::class, 'destroy']);
 
 
     // Temp Image Route

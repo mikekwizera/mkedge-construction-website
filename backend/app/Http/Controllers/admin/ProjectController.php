@@ -180,4 +180,24 @@ class ProjectController extends Controller
     ]);  
      
     }
+
+    
+    public function destroy($id) {
+
+        $project = Project::find($id);
+
+        if ($project == null){
+            return response()->json([
+                'status' => false,
+                'message' => 'Project not found'
+            ]); 
+        }
+
+        $project->delete();
+
+        return response()->json([
+            'status' => true,
+            'message' => 'Project deleted successfully.'
+        ]);  
+    }
 }
