@@ -193,6 +193,9 @@ class ProjectController extends Controller
             ]); 
         }
 
+        File::delete(public_path('uploads/projects/large/'.$project->image));
+        File::delete(public_path('uploads/projects/small/'.$project->image));
+
         $project->delete();
 
         return response()->json([
