@@ -26,6 +26,7 @@ Route::middleware(['auth:sanctum'])->group(function () {
     // Project Routes
     Route::post('projects', [ProjectController::class, 'store']);
     Route::get('projects', [ProjectController::class, 'index']);
+    Route::put('projects/{id}', [ProjectController::class, 'update']);
 
 
     // Temp Image Route
