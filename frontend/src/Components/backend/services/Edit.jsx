@@ -115,7 +115,7 @@ const Edit = ({placeholder}) => {
                             <div className='card shadow border-0'>
                                 <div className='card-body p-4'>
                                 <div className='d-flex justify-content-between'>
-                                    <h4 className='h5'>Services/Edit</h4>
+                                    <h4 className='h5'><strong>Services/Edit</strong></h4>
                                     <Link to="/admin/services" className='btn btn-primary'>Back</Link>
                                 </div>
                                 <hr />

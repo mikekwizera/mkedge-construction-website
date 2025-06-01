@@ -94,7 +94,7 @@ const Create = ({placeholder}) => {
                         <div className='card shadow border-0'>
                             <div className='card-body p-4'>
                               <div className='d-flex justify-content-between'>
-                                <h4 className='h5'>Projects/Create</h4>
+                                <h4 className='h5'><strong>Projects/Create</strong></h4>
                                 <Link to="/admin/projects" className='btn btn-primary'>Back</Link>
                               </div>
                               <hr />
@@ -151,7 +151,7 @@ const Create = ({placeholder}) => {
                                     <div className='col-md-6'>
                                         <div className='mb-3'>
                                             <label htmlFor="" 
-                                            className='form-label'>Contruction Type</label>
+                                            className='form-label'>Construction Type</label>
 
                                             <select className='form-control'
                                                 {

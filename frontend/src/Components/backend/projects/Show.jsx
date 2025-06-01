@@ -23,6 +23,30 @@ const Show = () => {
         setProjects(result.data);
     }
 
+      const deleteProject = async (id) => {
+    
+        if (confirm("Are you sure you want to delete?")) {
+          const res = await fetch(apiUrl+'projects/'+id,{
+            'method' : 'DELETE',
+            'headers' : {
+                'Content-type' : 'application/json',
+                'Accept' : 'application/json',
+                'Authorization' : `Bearer ${token()}`
+            }
+          });
+          const result = await res.json();
+    
+          if (result.status == true) {
+            const newProjects = projects.filter(project => project.id != id)
+            setProjects(newProjects);
+            toast.success(result.message)
+          }else {
+            toast.error(result.message)
+          }
+        }
+      }
+    
+
     useEffect(() => {
         fetchProjects()
     },[]);
@@ -43,7 +67,7 @@ const Show = () => {
                           <div className='card shadow border-0'>
                               <div className='card-body p-4'>
                                 <div className='d-flex justify-content-between'>
-                                  <h4 className='h5'>Projects</h4>
+                                  <h4 className='h5'><strong>Projects</strong></h4>
                                   <Link to="/admin/projects/create" className='btn btn-primary'>Create</Link>
                                 </div>
                                 <hr />
