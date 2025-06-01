@@ -56,6 +56,7 @@ const Create = ({placeholder}) => {
         const formData = new FormData();
         const file = e.target.files[0];
         formData.append("image",file);
+        setIsDisable(true);
 
         await fetch(apiUrl+'temp-images',{
             'method' : 'POST',
@@ -67,7 +68,8 @@ const Create = ({placeholder}) => {
         })
         .then(response => response.json())
         .then(result =>{
-            console.log(result); 
+         setIsDisable(false);
+            // console.log(result); 
             if (result.status == false) {
                 toast.error(result.errors.image[0])
             } else {
