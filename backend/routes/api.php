@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\admin\DashboardController;
 use App\Http\Controllers\admin\ServiceController;
 use App\Http\Controllers\admin\ProjectController;
+use App\Http\Controllers\admin\ArticleController;
 use App\Http\Controllers\front\ServiceController as FrontServiceController;
 use App\Http\Controllers\front\ProjectController as FrontProjectController;
 use App\Http\Controllers\admin\TempImageController;
@@ -33,6 +34,12 @@ Route::middleware(['auth:sanctum'])->group(function () {
     Route::put('projects/{id}', [ProjectController::class, 'update']);
     Route::get('projects/{id}', [ProjectController::class, 'show']);
     Route::delete('projects/{id}', [ProjectController::class, 'destroy']);
+
+    // Artcle Routes
+    Route::post('articles', [ArticleController::class, 'store']);
+    Route::get('articles', [ArticleController::class, 'index']);
+
+
 
 
     // Temp Image Route
