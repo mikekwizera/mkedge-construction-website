@@ -22,6 +22,29 @@ const Show = () => {
         const result = await res.json();
         setArticles(result.data);
     }
+
+    const deleteArticle = async (id) => {
+  
+      if (confirm("Are you sure you want to delete?")) {
+        const res = await fetch(apiUrl+'articles/'+id,{
+          'method' : 'DELETE',
+          'headers' : {
+              'Content-type' : 'application/json',
+              'Accept' : 'application/json',
+              'Authorization' : `Bearer ${token()}`
+          }
+        });
+        const result = await res.json();
+  
+        if (result.status == true) {
+          const newArticles = articles.filter(article => article.id != id)
+          setArticles(newArticles);
+          toast.success(result.message)
+        }else {
+          toast.error(result.message)
+        }
+      }
+    }
     
     useEffect(() => {
         fetchArticles()
@@ -72,7 +95,7 @@ const Show = () => {
                                                 </td>
                                               <td>
                                                 <Link to={`/admin/articles/edit/${article.id}`} className='btn btn-primary btn-sm'>Edit</Link>
-                                                <Link onClick={() => deleteProject(article.id)} href="#" className='btn btn-secondary btn-sm ms-2'>Delete</Link>
+                                                <Link onClick={() => deleteArticle(article.id)} href="#" className='btn btn-secondary btn-sm ms-2'>Delete</Link>
                                               </td>
                                             </tr>
                                           )

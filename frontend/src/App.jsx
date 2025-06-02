@@ -20,7 +20,7 @@ import {default as CreateProject} from './Components/backend/projects/Create';
 import {default as EditProject} from './Components/backend/projects/Edit';
 import {default as ShowArticles} from './Components/backend/articles/Show';
 import {default as CreateArticle} from './Components/backend/articles/Create';
-// import {default as EditArticle} from './Components/backend/articles/Edit';
+import {default as EditArticle} from './Components/backend/articles/Edit';
 
 function App() {
 
@@ -90,11 +90,11 @@ function App() {
               </RequireAuth>
             } />
 
-            {/* <Route path='/admin/articles/edit/:id' element={
+            <Route path='/admin/articles/edit/:id' element={
               <RequireAuth>
                  <EditArticle/>
               </RequireAuth>
-            } /> */}
+            } />
 
          </Routes>
     </BrowserRouter>

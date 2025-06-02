@@ -117,7 +117,7 @@ class ArticleController extends Controller
         
         $validator = Validator::make($request->all(),[
             'title' => 'required',
-            'slug' => 'required|unique:articles,slug'.$id.',id'
+            'slug' => 'required|unique:articles,slug,'.$id.',id'
         ]);
 
         if ($validator->fails()) {
