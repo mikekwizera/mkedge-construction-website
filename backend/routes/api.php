@@ -38,6 +38,8 @@ Route::middleware(['auth:sanctum'])->group(function () {
     // Artcle Routes
     Route::post('articles', [ArticleController::class, 'store']);
     Route::get('articles', [ArticleController::class, 'index']);
+    Route::get('articles/{id}', [ArticleController::class, 'show']);
+
 
 
 

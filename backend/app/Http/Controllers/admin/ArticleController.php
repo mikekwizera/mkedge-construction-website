@@ -13,13 +13,30 @@ use Intervention\Image\Drivers\Gd\Driver;
 
 class ArticleController extends Controller
 {
-    //This method will fetch all article
+    //This method will fetch all articles
     public function index(){
         $articles = Article::orderBy('created_at', 'DESC')->get();
 
         return response()->json([
             'status' => true,
             'data' => $articles
+        ]);
+    }
+
+    //This method will fetch single article
+    public function show($id){ 
+        $article = Article::find($id);
+
+        if($article == null) {
+            return response()->json([
+                'status' => false,
+                'message' => "Article not found"
+            ]);
+        }
+
+        return response()->json([
+            'status' => true,
+            'data' => $article
         ]);
     }
 
