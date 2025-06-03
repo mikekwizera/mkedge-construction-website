@@ -21,6 +21,9 @@ import {default as EditProject} from './Components/backend/projects/Edit';
 import {default as ShowArticles} from './Components/backend/articles/Show';
 import {default as CreateArticle} from './Components/backend/articles/Create';
 import {default as EditArticle} from './Components/backend/articles/Edit';
+import {default as ShowTestimonials} from './Components/backend/testimonials/Shows';
+// import {default as CreateTestimonial} from './Components/backend/testimonials/Create';
+// import {default as EditTestimonial} from './Components/backend/testimonials/Edit';
 
 function App() {
 
@@ -96,6 +99,24 @@ function App() {
               </RequireAuth>
             } />
 
+            <Route path='/admin/testimonials' element={
+              <RequireAuth>
+                 <ShowTestimonials/>
+              </RequireAuth>
+            } />
+
+            {/* <Route path='/admin/testimonials/create' element={
+              <RequireAuth>
+                 <CreateTestimonial/>
+              </RequireAuth>
+            } />
+
+            <Route path='/admin/testimonials/edit/:id' element={
+              <RequireAuth>
+                 <EditTestimonial/>
+              </RequireAuth>
+            } /> */}
+            
          </Routes>
     </BrowserRouter>
     <ToastContainer
