@@ -35,7 +35,7 @@ const Blogs = () => {
                     {
                         articles && articles.map(article => {
                             return (
-                                <div className='col-md-4'>
+                                <div className='col-md-4 mb-3'>
                                     <div className='card shadow border-0'>
                                         <div className='card-img-top'>
                                             <img src={`${fileUrl}uploads/articles/small/${article.image}`} alt="" className='w-100'/>
