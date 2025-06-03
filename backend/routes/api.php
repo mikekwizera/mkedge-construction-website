@@ -7,6 +7,7 @@ use App\Http\Controllers\admin\ProjectController;
 use App\Http\Controllers\admin\ArticleController;
 use App\Http\Controllers\front\ServiceController as FrontServiceController;
 use App\Http\Controllers\front\ProjectController as FrontProjectController;
+use App\Http\Controllers\front\ArticleController as FrontArticleController;
 use App\Http\Controllers\admin\TempImageController;
 use App\Http\Controllers\AuthenticationController;
 
@@ -16,6 +17,9 @@ Route::get('get-latest-services', [FrontServiceController::class, 'latestService
 
 Route::get('get-projects', [FrontProjectController::class, 'index']);
 Route::get('get-latest-projects', [FrontProjectController::class, 'latestProjects']);
+
+Route::get('get-articles', [FrontArticleController::class, 'index']);
+Route::get('get-latest-articles', [FrontArticleController::class, 'latestArticles']);
 
 Route::middleware(['auth:sanctum'])->group(function () {
     Route::get('dashboard', [DashboardController::class, 'index']);
