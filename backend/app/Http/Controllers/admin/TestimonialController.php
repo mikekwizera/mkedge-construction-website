@@ -59,6 +59,7 @@ class TestimonialController extends Controller
         $testimonial = new Testimonial();
         $testimonial->testimonial = $request->testimonial;
         $testimonial->citation = $request->citation;
+        $testimonial->designation = $request->designation;
         $testimonial->save();
 
         //Save Temp image here 
@@ -115,6 +116,7 @@ class TestimonialController extends Controller
 
         $testimonial->testimonial = $request->testimonial;
         $testimonial->citation = $request->citation;
+        $testimonial->designation = $request->designation;
         $testimonial->save();
 
         //Save Temp image here 
