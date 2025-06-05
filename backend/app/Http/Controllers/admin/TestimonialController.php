@@ -45,7 +45,7 @@ class TestimonialController extends Controller
     public function store(Request $request) {        
 
         $validator = Validator::make($request->all(),[
-            'testimoial' => 'required',
+            'testimonial' => 'required',
             'citation' => 'required'
         ]);
 

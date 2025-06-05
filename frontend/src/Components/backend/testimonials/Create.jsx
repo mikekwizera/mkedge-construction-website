@@ -23,25 +23,31 @@ const Create = () => {
     const navigate = useNavigate();
 
     const onSubmit = async (data) => {
-        const newData = { ...data, "imageId": imageId}
+        const newData = { ...data, "imageId": imageId };
+
+        // console.log("DATA FORM =>", data);
+        // console.log("NEW DATA =>", newData);
+
         const res = await fetch(apiUrl+'testimonials',{
-            'method' : 'POST',
-            'headers' : {
+            method: 'POST',
+            headers: {
                 'Content-type' : 'application/json',
                 'Accept' : 'application/json',
                 'Authorization' : `Bearer ${token()}`
             },
             body: JSON.stringify(newData)
         });
+
         const result = await res.json();
         
         if (result.status == true) {
             toast.success(result.message);
             navigate('/admin/testimonials')
-        }else {
+        } else {
             toast.error(result.message);
         }
     }
+
 
     const handleFile = async (e) => {
         const formData = new FormData();
@@ -155,7 +161,7 @@ const Create = () => {
                                     </select>
                                 </div>
 
-                                <button disabled={isDisable} className='btn btn-primary'>Submit</button>
+                                <button type="submit" disabled={isDisable} className='btn btn-primary'>Submit</button>
 
                               </form>
                             </div>
