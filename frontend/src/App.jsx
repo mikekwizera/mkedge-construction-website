@@ -25,6 +25,10 @@ import {default as ShowTestimonials} from './Components/backend/testimonials/Sho
 import {default as CreateTestimonial} from './Components/backend/testimonials/Create';
 import {default as EditTestimonial} from './Components/backend/testimonials/Edit';
 
+import {default as ShowMembers} from './Components/backend/members/Show';
+// import {default as CreateMember} from './Components/backend/members/Create';
+// import {default as EditMember} from './Components/backend/members/Edit';
+
 function App() {
 
   return (
@@ -116,6 +120,24 @@ function App() {
                  <EditTestimonial/>
               </RequireAuth>
             } />
+
+            <Route path='/admin/members' element={
+              <RequireAuth>
+                 <ShowMembers/>
+              </RequireAuth>
+            } />
+
+            {/* <Route path='/admin/members/create' element={
+              <RequireAuth>
+                 <CreateMember/>
+              </RequireAuth>
+            } /> */}
+
+            {/* <Route path='/admin/members/edit/:id' element={
+              <RequireAuth>
+                 <EditMember/>
+              </RequireAuth>
+            } /> */}
 
          </Routes>
     </BrowserRouter>
