@@ -38,7 +38,7 @@ const Shows = () => {
 
       if (result.status == true) {
         const newTestimonials = testimonials.filter(testimonial => testimonial.id != id)
-        setServices(newTestimonials);
+        setTestimonials(newTestimonials);
         toast.success(result.message)
       }else {
         toast.error(result.message)

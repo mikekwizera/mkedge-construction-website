@@ -103,7 +103,7 @@ class TestimonialController extends Controller
         }
         
         $validator = Validator::make($request->all(),[
-            'testimoial' => 'required',
+            'testimonial' => 'required',
             'citation' => 'required'
         ]);
 

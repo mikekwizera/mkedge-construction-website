@@ -23,7 +23,7 @@ import {default as CreateArticle} from './Components/backend/articles/Create';
 import {default as EditArticle} from './Components/backend/articles/Edit';
 import {default as ShowTestimonials} from './Components/backend/testimonials/Shows';
 import {default as CreateTestimonial} from './Components/backend/testimonials/Create';
-// import {default as EditTestimonial} from './Components/backend/testimonials/Edit';
+import {default as EditTestimonial} from './Components/backend/testimonials/Edit';
 
 function App() {
 
@@ -111,11 +111,11 @@ function App() {
               </RequireAuth>
             } />
 
-            {/* <Route path='/admin/testimonials/edit/:id' element={
+            <Route path='/admin/testimonials/edit/:id' element={
               <RequireAuth>
                  <EditTestimonial/>
               </RequireAuth>
-            } /> */}
+            } />
 
          </Routes>
     </BrowserRouter>
