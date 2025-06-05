@@ -8,7 +8,7 @@ import { apiUrl, token } from '../../Common/http'
 import { toast, ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'; 
 
-const Create = ({placeholder}) => {
+const Create = () => {
 
 	const [isDisable, setIsDisable] = useState(false);
 	const [imageId, setImageId] = useState(null);

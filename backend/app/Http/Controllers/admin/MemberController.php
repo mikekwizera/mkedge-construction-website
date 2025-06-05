@@ -113,7 +113,6 @@ class MemberController extends Controller
             ]);
         }
 
-        $member = new Member();
         $member->name = $request->name;
         $member->job_title = $request->job_title;
         $member->linkedin_url = $request->linkedin_url;

@@ -27,7 +27,7 @@ import {default as EditTestimonial} from './Components/backend/testimonials/Edit
 
 import {default as ShowMembers} from './Components/backend/members/Show';
 import {default as CreateMember} from './Components/backend/members/Create';
-// import {default as EditMember} from './Components/backend/members/Edit';
+import {default as EditMember} from './Components/backend/members/Edit';
 
 function App() {
 
@@ -133,11 +133,11 @@ function App() {
               </RequireAuth>
             } />
 
-            {/* <Route path='/admin/members/edit/:id' element={
+            <Route path='/admin/members/edit/:id' element={
               <RequireAuth>
                  <EditMember/>
               </RequireAuth>
-            } /> */}
+            } />
 
          </Routes>
     </BrowserRouter>
