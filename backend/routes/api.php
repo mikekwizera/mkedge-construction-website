@@ -11,6 +11,7 @@ use App\Http\Controllers\front\ServiceController as FrontServiceController;
 use App\Http\Controllers\front\ProjectController as FrontProjectController;
 use App\Http\Controllers\front\ArticleController as FrontArticleController;
 use App\Http\Controllers\front\TestimonialController as FrontTestimonialController;
+use App\Http\Controllers\front\MemberController as FrontMemberController;
 use App\Http\Controllers\admin\TempImageController;
 use App\Http\Controllers\AuthenticationController;
 
@@ -25,6 +26,9 @@ Route::get('get-articles', [FrontArticleController::class, 'index']);
 Route::get('get-latest-articles', [FrontArticleController::class, 'latestArticles']);
 
 Route::get('get-testimonials', [FrontTestimonialController::class, 'index']);
+
+Route::get('get-members', [FrontMemberController::class, 'index']);
+
 
 
 Route::middleware(['auth:sanctum'])->group(function () {

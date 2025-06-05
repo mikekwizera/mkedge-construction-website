@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import AvatarImg from '../../assets/images/author-2.jpg';
 import { Pagination } from 'swiper/modules'; 
 import 'swiper/css';
 import 'swiper/css/pagination';
@@ -54,7 +53,7 @@ const ShowTestimonial = () => {
             {
                 testimonials && testimonials.map(testimonial => {
                     return (
-                        <SwiperSlide>
+                        <SwiperSlide key={`testimonial-${testimonial.id}`}>
                             <div className='card shadow border-0'>
                                 <div className='card-body p-5'>
                                     <div className='rating'>
