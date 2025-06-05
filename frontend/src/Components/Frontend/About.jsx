@@ -1,4 +1,5 @@
 import React from 'react'
+import ShowTestimonial from '../Common/ShowTestimonial';
 import Header from '../Common/Header'
 import Footer from '../Common/Footer'
 import {default as AboutNew} from '../Common/About'
@@ -106,6 +107,9 @@ const About = () => {
                   </div>
                   </div>
             </section>
+
+            <ShowTestimonial />
+
 
           </main>
         <Footer/>
