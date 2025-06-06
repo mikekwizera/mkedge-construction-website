@@ -22,9 +22,11 @@ Route::get('get-service/{id}', [FrontServiceController::class, 'service']);
 
 Route::get('get-projects', [FrontProjectController::class, 'index']);
 Route::get('get-latest-projects', [FrontProjectController::class, 'latestProjects']);
+Route::get('get-project/{id}', [FrontProjectController::class, 'project']);
 
 Route::get('get-articles', [FrontArticleController::class, 'index']);
 Route::get('get-latest-articles', [FrontArticleController::class, 'latestArticles']);
+
 
 Route::get('get-testimonials', [FrontTestimonialController::class, 'index']);
 

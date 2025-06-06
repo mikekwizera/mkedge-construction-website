@@ -29,6 +29,7 @@ import {default as ShowMembers} from './Components/backend/members/Show';
 import {default as CreateMember} from './Components/backend/members/Create';
 import {default as EditMember} from './Components/backend/members/Edit';
 import ServiceDetail from './Components/Frontend/ServiceDetail';
+import ProjectDetail from './Components/Frontend/ProjectDetail';
 
 function App() {
 
@@ -43,6 +44,7 @@ function App() {
             <Route path='/blogs' element={<Blogs/>} />
             <Route path='/contact' element={<ContactUs/>} />
             <Route path='/service/:id' element={<ServiceDetail/>} />
+            <Route path='/project/:id' element={<ProjectDetail/>} />
 
             <Route path='/admin/login' element={<Login/>} />
 
