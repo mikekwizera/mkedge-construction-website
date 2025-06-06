@@ -100,7 +100,7 @@ const Create = ({placeholder}) => {
 
                               <form onSubmit={handleSubmit(onSubmit)}>
                                 <div className='mb-3'>
-                                    <label htmlFor="" className='form-label'>Name</label>
+                                    <label htmlFor="" className='form-label'>Title</label>
                                     <input
                                     placeholder='Title'
                                     {

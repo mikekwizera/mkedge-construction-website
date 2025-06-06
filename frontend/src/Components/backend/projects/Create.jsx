@@ -162,6 +162,12 @@ const Create = ({placeholder}) => {
                                                 <option value="Residential construction">Residential construction</option>
                                                 <option value="Commercial  construction">Commercial construction</option>
                                                 <option value="Industrial construction">Industrial construction</option>
+                                                <option value="Educational Facility">Educational Facility
+                                                </option>
+                                                <option value="Urban Transit System">Urban Transit System
+                                                </option>
+                                                <option value="Military Housing">Military Housing
+                                                </option>
                                                 <option value="Infrastructure construction">Infrastructure construction</option>
                                             </select>
                                         </div>
@@ -183,6 +189,8 @@ const Create = ({placeholder}) => {
                                                 <option value="Health">Health</option>
                                                 <option value="Education">Education</option>
                                                 <option value="Corporate">Corporate</option>
+                                                <option value="Academic / Sustainability">Academic / Sustainability
+                                                </option>
                                             </select>
                                         </div>
                                     </div>

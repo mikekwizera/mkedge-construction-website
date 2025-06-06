@@ -3,6 +3,7 @@ import Header from '../Common/Header'
 import Footer from '../Common/Footer'
 import Hero from '../Common/Hero'
 import { apiUrl, fileUrl } from '../Common/http';
+import { Link } from 'react-router-dom';
 
 const Blogs = () => {
 
@@ -42,9 +43,9 @@ const Blogs = () => {
                                         </div>
                                         <div className='card-body p-4'>
                                             <div className='mb-3'>
-                                                <a href="" className='title'>{article.title}</a>
+                                                <Link to={`/article/${article.id}`} className='title'>{article.title}</Link>
                                             </div>
-                                            <a href="" className='btn btn-primary small'>Read More</a>
+                                            <Link to={`/article/${article.id}`} className='btn btn-primary small'>Read More</Link>
                                         </div>
                                     </div>
                                 </div>

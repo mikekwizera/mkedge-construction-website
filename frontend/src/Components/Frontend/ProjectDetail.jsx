@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import Header from '../Common/Header'
 import Footer from '../Common/Footer'
 import Hero from '../Common/Hero'
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { apiUrl, fileUrl } from '../Common/http';
 import ShowTestimonial from '../Common/ShowTestimonial';
 
